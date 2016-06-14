@@ -32,7 +32,8 @@
     <meta name="theme-color" content="#2F3BA2">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="scripts/angularApp.js"></script>
+    <script src="scripts/app.module.js"></script>
+    <script src="scripts/components/name-header.directive.js"></script>
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -40,9 +41,9 @@
     -->
 
   </head>
-  <body ng-controller="ArtistController">
+  <body>
     <header>
-      {{::artistName}}
+      <name-header></name-header>
     </header>
 
     <main>
