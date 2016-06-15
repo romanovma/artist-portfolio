@@ -31,9 +31,10 @@
     <!-- Color the status bar on mobile devices -->
     <meta name="theme-color" content="#2F3BA2">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
     <script src="scripts/app.module.js"></script>
-    <script src="scripts/components/name-header.directive.js"></script>
+    <script src="scripts/app.controller.js"></script>
+    <script src="scripts/components/name-header.component.js"></script>
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -41,17 +42,13 @@
     -->
 
   </head>
-  <body>
+  <body ng-controller="mainCtrl as ctrl">
     <header>
-      <name-header></name-header>
+      <name-header artist="ctrl.artist"></name-header>
     </header>
 
     <main>
-      <ul>
-        <li ng-repeat="item in menu">
-          <span>{{::item.name}}</span>
-        </li>
-      </ul>
+
     </main>
 
 
