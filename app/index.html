@@ -32,9 +32,15 @@
     <meta name="theme-color" content="#2F3BA2">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-    <script src="scripts/app.module.js"></script>
-    <script src="scripts/app.controller.js"></script>
-    <script src="scripts/components/name-header.component.js"></script>
+    <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
+    <base href="/">
+    <script src="scripts/artistPortfolio.module.js"></script>
+    <script src="scripts/artistPortfolio.component.js"></script>
+    <script src="scripts/common/artistName.component.js"></script>
+    <script src="scripts/home/enter.component.js"></script>
+    <script src="scripts/home/main.component.js"></script>
+
+
 
     <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
     <!--
@@ -42,15 +48,8 @@
     -->
 
   </head>
-  <body ng-controller="mainCtrl as ctrl">
-    <header>
-      <name-header artist="ctrl.artist"></name-header>
-    </header>
-
-    <main>
-
-    </main>
-
+  <body>
+    <artist-portfolio></artist-portfolio>
 
     <script src="scripts/main.js"></script>
 

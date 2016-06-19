@@ -1,5 +1,5 @@
 // Define the `artistPortfolio` module
-angular.module('artistPortfolio', []);
+angular.module('artistPortfolio', ['ngComponentRouter']);
 
 // Define the `ArtistController` controller on the `phonecatApp` module
 // artistPortfolio.controller('ArtistController',
