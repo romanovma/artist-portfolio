@@ -1,10 +1,10 @@
-<div>
-  <header>
-    <artist-name artist="$ctrl.artist" ng-link="['Enter']"></artist-name>
-    <menu>
-      menu
-    </menu>
-    social-links
-  </header>
-
-</div>
+<artist-name artist="$ctrl.artist" ng-link="['Enter']"></artist-name>
+social-links
+<nav>
+  <a ng-link="['News']">News</a>
+  <a ng-link="['Collage']">Collage</a>
+  <a ng-link="['Drawing']">Drawing</a>
+  <a ng-link="['About']">About & Contact</a>
+  <a target="_blank" href="http://www.saatchiart.com/elinaev">Shop</a>
+</nav>
+<ng-outlet></ng-outlet>
