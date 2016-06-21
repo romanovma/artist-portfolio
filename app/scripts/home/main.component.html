@@ -1,10 +1,15 @@
-<artist-name artist="$ctrl.artist" ng-link="['Enter']"></artist-name>
-social-links
-<nav>
-  <a ng-link="['News']">News</a>
-  <a ng-link="['Collage']">Collage</a>
-  <a ng-link="['Drawing']">Drawing</a>
-  <a ng-link="['About']">About & Contact</a>
-  <a target="_blank" href="http://www.saatchiart.com/elinaev">Shop</a>
-</nav>
-<ng-outlet></ng-outlet>
+<div id="main">
+  <nav id="social-links">
+    <a class="fb-link" target="_blank" href="https://www.facebook.com/elina.evstigneeva.1"></a>
+    <a class="insta-link" target="_blank" href="https://www.instagram.com/eliinareeliina/"></a>
+  </nav>
+  <artist-name artist="$ctrl.artist" ng-link="['Enter']"></artist-name>
+  <nav id="menu">
+    <a ng-link="['News']">News</a>
+    <a ng-link="['Collage']">Collage</a>
+    <a ng-link="['Drawing']">Drawing</a>
+    <a ng-link="['About']">About & Contact</a>
+    <a target="_blank" href="http://www.saatchiart.com/elinaev">Shop</a>
+  </nav>
+  <ng-outlet></ng-outlet>
+</div>

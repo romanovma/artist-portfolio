@@ -1,9 +1,11 @@
 @charset   'UTF-8';
 
-@import    'reset';
-@import    'settings';
-@import    'fonts';
-@import    'base';
+@import    "reset";
+@import    "settings";
+@import    "fonts";
+@import    "base";
+
+@import    "pages/enter";
 
 //Components
 .artist-name {
@@ -13,58 +15,76 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-align: center;
-  //position: fixed;
   font-size: 6vw;
   @media only screen and (min-width: $max-width) {
     font-size: 60px;
   }
 }
 
-//Enter page
-enter,
-#enter {
-  display: block;
-  height: 100%;
-}
 
-#enter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.bg-carousel {
+//main
+#social-links {
   position: absolute;
-  top: 0;
-  left: 0;
   right: 0;
-  bottom: 0;
-  background-size: cover;
-  background-position: center;
 }
 
-#enter artist-name {
-  color: #ffffff;
-}
-
-.enter-link-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-}
-
-.enter-link {
+.insta-link,
+.fb-link {
   display: inline-block;
-  font-family: 'AlternateGotNo3D', 'Arial', 'sans-serif';
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 3.5vw;
+  font-size: 15px;
+  width: 1em;
+  height: 1em;
+  margin: 0.125em;
+  @media only screen and (min-width: $medium-width) {
+    font-size: 3vw;
+  }
   @media only screen and (min-width: $max-width) {
-    font-size: 35px;
+    font-size: 40px;
+  }
+}
+
+.insta-link {
+  background-image: url('../images/icons/insta.png');
+  background-size: 100%;
+}
+
+.fb-link {
+  background-image: url('../images/icons/fb.png');
+  background-size: 100%;
+}
+
+
+#main .artist-name {
+  padding-top: 0.45em;
+  letter-spacing: 0.05em;
+  color: #000;
+  font-size: 5.58vw;
+  cursor: pointer;
+  @media only screen and (min-width: $max-width) {
+    font-size: 58px;
+  }
+}
+
+#menu {
+  padding-top: 2em;
+  font-family: 'EB Garamond', 'Times New Roman', 'serif';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 600px;
+  margin: auto;
+  font-size: 3vw;
+  @media only screen and (min-width: $medium-width) {
+    font-size: 15px;
+  }
+}
+
+#menu a {
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #817e7e;
+  &:hover {
+    color: #000;
   }
 }

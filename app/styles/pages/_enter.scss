@@ -1,0 +1,90 @@
+//Enter page
+enter,
+#enter {
+  display: block;
+  height: 100%;
+}
+
+#enter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+@keyframes carousel {
+  0% {
+    opacity:1;
+  }
+  15% {
+    opacity:1;
+  }
+  20% {
+    opacity:0;
+  }
+  95% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.bg-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  animation-name: carousel;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 15s;
+}
+
+.bg-carousel-wrapper:nth-of-type(1) .bg-carousel {
+  animation-delay: 12s;
+}
+.bg-carousel-wrapper:nth-of-type(2) .bg-carousel {
+  animation-delay: 9s;
+}
+.bg-carousel-wrapper:nth-of-type(3) .bg-carousel {
+  animation-delay: 6s;
+}
+.bg-carousel-wrapper:nth-of-type(4) .bg-carousel {
+  animation-delay: 3s;
+}
+.bg-carousel-wrapper:nth-of-type(5) .bg-carousel {
+  animation-delay: 0;
+}
+
+#enter artist-name {
+  color: #ffffff;
+}
+
+.enter-link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.enter-link {
+  display: inline-block;
+  font-family: 'AlternateGotNo3D', 'Arial', 'sans-serif';
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 3.5vw;
+  @media only screen and (min-width: $max-width) {
+    font-size: 35px;
+  }
+
+  &:hover {
+    color: rgba(255,255,255,0.6);
+  }
+}

@@ -7,8 +7,8 @@
       templateUrl: 'scripts/home/main.component.html',
       $routeConfig: [
         {path:'/news', name: 'News', component: 'news'},
-        {path:'/', name: 'Collage', component: 'collage'},
-        {path:'/drawing', name: 'Drawing', component: 'drawing'},
+        {path:'/', name: 'Collage', component: 'works'},
+        {path:'/drawing', name: 'Drawing', component: 'works'},
         {path:'/about', name: 'About', component: 'about'}
       ],
       controller: mainCtrl,
