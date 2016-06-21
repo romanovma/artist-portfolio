@@ -84,7 +84,7 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/**/*.scss',
+    'app/styles/**/main.scss',
     'app/styles/**/*.css'
   ])
     .pipe($.newer('.tmp/styles'))
@@ -93,20 +93,21 @@ gulp.task('styles', () => {
       precision: 10
     }).on('error', $.sass.logError))
     // Remove any unused CSS
-    .pipe($.if('*.css', $.uncss({
-      html: [
-        'app/index.html'
-      ],
-      // CSS Selectors for UnCSS to ignore
-      ignore: []
-    })))
+    // .pipe($.if('*.css', $.uncss({
+    //   html: [
+    //     'app/index.html'
+    //   ],
+    //   // CSS Selectors for UnCSS to ignore
+    //   ignore: []
+    // })))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.size({title: 'styles'}))
     .pipe($.sourcemaps.write('./'))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest('app/styles'));
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.

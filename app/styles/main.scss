@@ -1,0 +1,70 @@
+@charset   'UTF-8';
+
+@import    'reset';
+@import    'settings';
+@import    'fonts';
+@import    'base';
+
+//Components
+.artist-name {
+  margin: auto;
+  padding-top: 0.66em;
+  font-family: 'AlternateGotNo3D', 'Arial', 'sans-serif';
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
+  //position: fixed;
+  font-size: 6vw;
+  @media only screen and (min-width: $max-width) {
+    font-size: 60px;
+  }
+}
+
+//Enter page
+enter,
+#enter {
+  display: block;
+  height: 100%;
+}
+
+#enter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.bg-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+#enter artist-name {
+  color: #ffffff;
+}
+
+.enter-link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.enter-link {
+  display: inline-block;
+  font-family: 'AlternateGotNo3D', 'Arial', 'sans-serif';
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 3.5vw;
+  @media only screen and (min-width: $max-width) {
+    font-size: 35px;
+  }
+}

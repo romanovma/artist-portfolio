@@ -5,7 +5,7 @@
     .module('artistPortfolio')
     .value('$routerRootComponent', 'artistPortfolio')
     .component('artistPortfolio', {
-      template: '<ng-outlet artist="$ctrl.artist"></ng-outlet>',
+      template: '<ng-outlet id="main-outlet" artist="$ctrl.artist"></ng-outlet>',
       controller: artistPortfolioCtrl,
       $routeConfig: [
         {path: '/', name: 'Enter', component: 'enter'},
