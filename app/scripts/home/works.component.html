@@ -1,0 +1,4 @@
+<div class="works">
+  <div ng-repeat="image in $ctrl.works[$ctrl.type]" class="single-work" ng-style="{ 'background-image': 'url(' + $ctrl.path + $ctrl.type + '/' + image + ')', 'animation-delay': ($index * 1.2) + 's' }">
+  </div>
+</div>

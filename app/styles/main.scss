@@ -5,7 +5,8 @@
 @import    "fonts";
 @import    "base";
 
-@import    "pages/enter";
+@import    "pages/page-enter";
+@import    "pages/page-main";
 
 //Components
 .artist-name {
@@ -21,70 +22,56 @@
   }
 }
 
-
-//main
-#social-links {
-  position: absolute;
-  right: 0;
-}
-
-.insta-link,
-.fb-link {
-  display: inline-block;
-  font-size: 15px;
-  width: 1em;
-  height: 1em;
-  margin: 0.125em;
-  @media only screen and (min-width: $medium-width) {
-    font-size: 3vw;
-  }
-  @media only screen and (min-width: $max-width) {
-    font-size: 40px;
-  }
-}
-
-.insta-link {
-  background-image: url('../images/icons/insta.png');
-  background-size: 100%;
-}
-
-.fb-link {
-  background-image: url('../images/icons/fb.png');
-  background-size: 100%;
-}
-
-
-#main .artist-name {
-  padding-top: 0.45em;
-  letter-spacing: 0.05em;
-  color: #000;
-  font-size: 5.58vw;
-  cursor: pointer;
-  @media only screen and (min-width: $max-width) {
-    font-size: 58px;
-  }
-}
-
-#menu {
-  padding-top: 2em;
-  font-family: 'EB Garamond', 'Times New Roman', 'serif';
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 600px;
+//news
+#news {
+  font-size: 10.4vw;
   margin: auto;
-  font-size: 3vw;
-  @media only screen and (min-width: $medium-width) {
-    font-size: 15px;
+  width: 8.6em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media only screen and (min-width: $max-width) {
+    font-size: 100px;
   }
 }
 
-#menu a {
-  display: inline-block;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #817e7e;
-  &:hover {
-    color: #000;
+.article {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+//works
+.works {
+  font-size: 10.4vw;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 8.6em;
+  @media only screen and (min-width: $max-width) {
+    font-size: 100px;
   }
+}
+
+.single-work {
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  background-size:cover;
+  margin-bottom: 0.2em;
+  margin-right: 0.2em;
+  animation: fadein 900ms forwards;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  opacity: 0;
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
