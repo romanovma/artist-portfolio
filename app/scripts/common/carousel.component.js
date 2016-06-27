@@ -5,7 +5,7 @@
     .module('artistPortfolio')
     .component('carousel', {
       templateUrl: 'scripts/common/carousel.component.html',
-      controller: carouselController,
+      controller: carouselController
     });
 
   function carouselController() {
@@ -19,7 +19,5 @@
       '2239979-BFKYEHCJ-7.jpg',
       '2239990-PGZLAKCJ-7.jpg'
     ];
-    
   }
-
 })();

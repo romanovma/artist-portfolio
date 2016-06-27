@@ -18,6 +18,5 @@
     vm.artist = {
       name: 'Elya Romanov'
     };
-  };
-
+  }
 })();

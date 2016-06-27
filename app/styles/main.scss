@@ -7,6 +7,9 @@
 
 @import    "pages/page-enter";
 @import    "pages/page-main";
+@import    "pages/page-works";
+@import    "pages/page-news";
+@import    "pages/page-about";
 
 //Components
 .artist-name {
@@ -22,56 +25,23 @@
   }
 }
 
-//news
-#news {
-  font-size: 10.4vw;
-  margin: auto;
-  width: 8.6em;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  @media only screen and (min-width: $max-width) {
-    font-size: 100px;
+//lihtbox
+#baguetteBox-overlay {
+
+  #close-button,
+  #next-button,
+  #previous-button {
+    background-color: transparent;
+
+    svg polyline,
+    svg g {
+      stroke: #fff;
+      stroke-width: 2;
+    }
   }
-}
 
-.article {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-//works
-.works {
-  font-size: 10.4vw;
-  margin: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 8.6em;
-  @media only screen and (min-width: $max-width) {
-    font-size: 100px;
+  #close-button {
+    transform: scale(0.8);
   }
-}
 
-.single-work {
-  display: inline-block;
-  height: 2em;
-  width: 2em;
-  background-size:cover;
-  margin-bottom: 0.2em;
-  margin-right: 0.2em;
-  animation: fadein 900ms forwards;
-  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
-  opacity: 0;
-  &:nth-of-type(4n) {
-    margin-right: 0;
-  }
-}
-
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }

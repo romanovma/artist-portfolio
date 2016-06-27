@@ -1,0 +1,31 @@
+//news
+#news {
+  font-size: 10.4vw;
+  margin: auto;
+  width: 8.6em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @media only screen and (min-width: $medium-width) {}
+  @media only screen and (min-width: $max-width) {
+    font-size: 100px;
+  }
+}
+
+.article {
+  text-align: center;
+  margin-bottom: 50px;
+
+  &.desktop {
+    display: none;
+  }
+
+  @media only screen and (min-width: $medium-width) {
+    &.desktop {
+      display: block;
+    }
+    &.mobile {
+      display: none;
+    }
+  }
+}

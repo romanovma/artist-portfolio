@@ -17,6 +17,5 @@
     vm.$onInit = function() {
       vm.artist = vm.artistPortfolioCtrl.artist;
     };
-  };
-
+  }
 })();

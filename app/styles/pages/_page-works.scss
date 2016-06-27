@@ -1,0 +1,67 @@
+//works
+.works {
+  font-size: 10.4vw;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 8.6em;
+  @media only screen and (min-width: $max-width) {
+    font-size: 100px;
+  }
+}
+
+.single-work {
+  will-change: transform;
+  display: inline-block;
+  height: 2em;
+  width: 2em;
+  margin-bottom: 0.2em;
+  margin-right: 0.2em;
+
+  &:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  &:hover .single-work-flipper {
+    transform: rotateY(-180deg);
+  }
+}
+
+.single-work-flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+.front {
+  animation: fadein 900ms forwards;
+  animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+  opacity: 0;
+  background-size:cover;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+
+.back,
+.front {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

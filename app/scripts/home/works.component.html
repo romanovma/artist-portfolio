@@ -1,4 +1,13 @@
 <div class="works">
-  <div ng-repeat="image in $ctrl.works[$ctrl.type]" class="single-work" ng-style="{ 'background-image': 'url(' + $ctrl.path + $ctrl.type + '/' + image + ')', 'animation-delay': ($index * 1.2) + 's' }">
-  </div>
+  <a class="single-work" ng-repeat="image in $ctrl.works[$ctrl.type]" ng-href="{{$ctrl.path}}{{$ctrl.type}}/{{image}}">
+    <div class="single-work-flipper">
+      <div class="front"
+         ng-style="{ 'background-image': 'url(' + $ctrl.path + $ctrl.type + '/' + image + ')', 'animation-delay': ($index * 1.2) + 's' }">
+      </div>
+      <div class="back"
+         ng-style="{ 'background-image': 'url(' + $ctrl.path + $ctrl.type + '/back-' + image + ')'}">
+      </div>
+    </div>
+  </a>
+
 </div>

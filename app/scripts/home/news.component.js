@@ -5,11 +5,9 @@
     .module('artistPortfolio')
     .component('news', {
       templateUrl: 'scripts/home/news.component.html',
-      controller: newsCtrl,
+      controller: newsCtrl
     });
 
   function newsCtrl() {
-    var vm = this;
-  };
-
+  }
 })();

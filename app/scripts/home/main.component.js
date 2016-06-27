@@ -6,9 +6,9 @@
     .component('main', {
       templateUrl: 'scripts/home/main.component.html',
       $routeConfig: [
-        {path:'/news', name: 'News', component: 'news'},
-        {path:'/:type', name: 'Works', component: 'works'},
-        {path:'/about', name: 'About', component: 'about'}
+        {path: '/news', name: 'News', component: 'news'},
+        {path: '/:type', name: 'Works', component: 'works'},
+        {path: '/about', name: 'About', component: 'about'}
       ],
       controller: mainCtrl,
       require: {
@@ -22,6 +22,5 @@
     vm.$onInit = function() {
       vm.artist = vm.artistPortfolioCtrl.artist;
     };
-  };
-
+  }
 })();

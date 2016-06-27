@@ -1,0 +1,6 @@
+globals:
+  angular: false
+  baguetteBox: false
+
+env:
+  browser: true
