@@ -33,9 +33,21 @@ import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
+import templateCache from 'gulp-angular-templatecache';
+import ngAnnotate from 'gulp-ng-annotate';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+// Put angular html templates into one js file
+gulp.task('templates', function () {
+  return gulp.src('app/scripts/**/*.html')
+    .pipe(templateCache('templates.js', {
+      module: 'artistPortfolio',
+      root: 'scripts/'
+    }))
+    .pipe(gulp.dest('app/scripts'));
+});
 
 // Lint JavaScript
 gulp.task('lint', () =>
@@ -48,10 +60,10 @@ gulp.task('lint', () =>
 // Optimize images
 gulp.task('images', () =>
   gulp.src('app/images/**/*')
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
+    // .pipe($.cache($.imagemin({
+    //   progressive: true,
+    //   interlaced: true
+    // })))
     .pipe(gulp.dest('dist/images'))
     .pipe($.size({title: 'images'}))
 );
@@ -66,6 +78,16 @@ gulp.task('copy', () =>
     dot: true
   }).pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}))
+);
+
+// Copy fonts
+gulp.task('fonts', () =>
+  gulp.src([
+    'app/fonts/**'
+  ], {
+    dot: true
+  }).pipe(gulp.dest('dist/fonts'))
+    .pipe($.size({title: 'fonts'}))
 );
 
 // Compile and automatically prefix stylesheets
@@ -84,8 +106,7 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/**/main.scss',
-    'app/styles/**/*.css'
+    'app/styles/**/main.scss'
   ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
@@ -113,18 +134,31 @@ gulp.task('styles', () => {
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enable ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
-gulp.task('scripts', () =>
+gulp.task('scripts', ['templates'], () =>
     gulp.src([
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './app/scripts/main.js'
+      './app/scripts/main.js',
       // Other scripts
-
+      './app/scripts/vendor/angular.min.js',
+      './app/scripts/vendor/angular_1_router.js',
+      './app/scripts/vendor/baguetteBox.js',
+      './app/scripts/artistPortfolio.module.js',
+      './app/scripts/artistPortfolio.component.js',
+      './app/scripts/common/artistName.component.js',
+      './app/scripts/common/carousel.component.js',
+      './app/scripts/home/enter.component.js',
+      './app/scripts/home/main.component.js',
+      './app/scripts/home/news.component.js',
+      './app/scripts/home/works.component.js',
+      './app/scripts/home/about.component.js',
+      './app/scripts/templates.js'
     ])
       .pipe($.newer('.tmp/scripts'))
+      .pipe(ngAnnotate())
       .pipe($.sourcemaps.init())
-      .pipe($.babel())
+      //.pipe($.babel())
       .pipe($.sourcemaps.write())
       .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
@@ -133,11 +167,14 @@ gulp.task('scripts', () =>
       .pipe($.size({title: 'scripts'}))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest('dist/scripts'))
+      .pipe(gulp.dest('app/scripts'))
 );
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', () => {
-  return gulp.src('app/**/*.html')
+  return gulp.src([
+    'app/**/index.html'
+  ])
     .pipe($.useref({
       searchPath: '{.tmp,app}',
       noAssets: true
@@ -205,7 +242,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    ['lint', 'html', 'scripts', 'images', 'copy', 'fonts'],
     'generate-service-worker',
     cb
   )
