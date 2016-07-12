@@ -61,6 +61,8 @@
   text-decoration: none;
   text-transform: uppercase;
   color: #817e7e;
+
+  &.active,
   &:hover {
     color: #000;
   }

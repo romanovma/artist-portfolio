@@ -19,6 +19,10 @@
   function mainCtrl() {
     var vm = this;
 
+    vm.select = function(tab) {
+      console.log(tab);
+    };
+
     vm.$onInit = function() {
       vm.artist = vm.artistPortfolioCtrl.artist;
     };

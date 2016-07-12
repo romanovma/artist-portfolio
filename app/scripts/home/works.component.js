@@ -11,6 +11,32 @@
   function worksCtrl() {
     var vm = this;
     vm.baguetteInit = false;
+    vm.path = 'images/';
+    vm.works = {
+      collage: [
+        '12118925_546390765510702_1850986385131892015_n.jpg',
+        '1911137-GJERXNMI-7.jpg',
+        '2239903-LCDGFRTY-7.jpg',
+        '2239911-TZYZXJQA-7.jpg'
+      ],
+      drawing: [
+        '2239941-EPWPMDPI-7.jpg',
+        '2239950-SWNUBDMV-7.jpg',
+        '2239955-MOUWSNEV-7.jpg',
+        '2239960-CRAUAWQO-7.jpg',
+        '13438867_647221675427610_8008859344759469478_n.jpg'
+      ],
+      painting: [
+        '1868330-SDTWMKSP-7.jpg',
+        '1868335-JCHSCAIY-7.jpg',
+        '1868344-FTRRKLHQ-7.jpg',
+        '2239880-TIOGCPRA-7.jpg'
+      ]
+    };
+
+    this.$routerOnActivate = function(next) {
+      vm.type = next.params.type;
+    };
 
     angular.element(document).ready(function() {
       baguetteBox.run('.works', {
@@ -39,38 +65,5 @@
         baguetteBox.showPrevious();
       }
     }
-
-    this.$routerOnActivate = function(next) {
-      vm.type = next.params.type;
-    };
-
-    vm.path = 'images/';
-
-    vm.works = {
-      collage: [
-        '1911132-FTOYMZBW-7.jpg',
-        '1911137-GJERXNMI-7.jpg',
-        '2239903-LCDGFRTY-7.jpg',
-        '2239911-TZYZXJQA-7.jpg'
-      ],
-      drawing: [
-        '1713180-FYPDJCIK-7.jpg',
-        '1713268-RUOXQWXO-7.jpg',
-        '1713306-QXXBLMWM-7.jpg',
-        '1714219-XIMFGPJA-7.jpg',
-        '2239941-EPWPMDPI-7.jpg',
-        '2239864-EOMSTEDK-7.jpg',
-        '2239950-SWNUBDMV-7.jpg',
-        '2239955-MOUWSNEV-7.jpg',
-        '2239960-CRAUAWQO-7.jpg',
-        '2239990-PGZLAKCJ-7.jpg'
-      ],
-      painting: [
-        '1868330-SDTWMKSP-7.jpg',
-        '1868335-JCHSCAIY-7.jpg',
-        '1868344-FTRRKLHQ-7.jpg',
-        '2239880-TIOGCPRA-7.jpg'
-      ]
-    };
   }
 })();
