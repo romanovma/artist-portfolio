@@ -26,6 +26,7 @@
       if (!vm.baguetteInit) {
         for (var i = 0, length = elems.length; i < length; i++) {
           elems[i].onclick = clickHandler;
+          elems[i].touchend = clickHandler;
         }
         vm.baguetteInit = true;
       }
